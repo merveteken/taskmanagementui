@@ -1,0 +1,40 @@
+<button (click)="exit()" class="btn btn-success" style="float: right;">Logout</button>
+
+<section id="team" class="pb-5" >
+  <div class="container" >
+      <h5 class="section-title h1" style="color: brown;">HELLO TASKER {{user}}</h5>
+
+
+      <div class="row justify-content-center">
+        <h2 class="title" style="font-style: italic;">You have {{leng}} new requests !</h2>
+
+          <div class="container">
+            
+              <div class="row justify-content-center">
+
+
+                  <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]" *ngFor="let task of taskRequestList; index as i;">
+
+                    <ul class="event-list">
+                      <li>
+                          
+                          <img alt="task" src="../../assets/task.png" />
+                          <div class="info">
+                              <h2 class="title">{{task.task.description}}</h2>
+                              <p class="desc">Customer: {{customer}}</p>
+                              <p class="desc">Date: {{task.task.date.split('T')[0]}}</p>
+                              <button (click)="selectTask(task.taskRequest.taskId)" class="btn btn-success">Select</button>
+    
+                          </div>
+      
+                      </li>
+      
+      
+                  </ul>
+                  </div>
+              </div>
+          </div>
+   
+      </div>
+  </div>
+</section>

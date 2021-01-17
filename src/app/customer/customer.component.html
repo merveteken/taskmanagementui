@@ -1,0 +1,69 @@
+<button (click)="exit()" class="btn btn-success" style="float: right;">Logout</button>
+
+
+<section id="team" class="pb-5" *ngIf='!showTaskers' >
+    <div class="container" >
+        <h5 class="section-title h1" style="color: brown;">HELLO {{user}}</h5>
+
+        <h6 class="section-title h1">TASKS</h6>
+        <div class="row">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]" *ngFor="let task of tasks; index as i">
+                        <ul class="event-list">
+                            <li>
+                                <time datetime="2014-07-20">
+                                    <span class="day">{{task.date.split('T')[0].split('-')[2]}}
+                                    </span>
+                                    <span class="month">{{task.date.split('T')[0].split('-')[1]}}</span>
+                                    <span class="year">{{task.date.split('T')[0].split('-')[0]}}</span>
+                                </time>
+                                <img alt="Independence Day" src="../../assets/task.png" />
+                                <div class="info">
+                                    <h2 class="title">{{task.description}}</h2>
+                                    <p class="desc">task detail</p>
+                                    <button (click)="selectTask(task.id)" class="btn btn-success taskbtn">Select</button>
+            
+            
+                                </div>
+            
+                            </li>
+            
+            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+    </div>
+</section>
+
+<section id="team" class="pb-5" *ngIf='showTaskers'>
+    <div class="container" >
+        <h5 class="section-title h1">TASKERS</h5>
+        <div class="row">
+            <div *ngFor="let item of list; index as i" class="col-xs-12 col-sm-6 col-md-4">
+
+                <div class="mainflip flip-0">
+                    <div class="frontside">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <p><img class=" img-fluid"
+                                        src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_0{{i+1}}.png"
+                                        alt="taskr image"></p>
+                                <h4 class="card-title">{{item.firstname}} {{item.lastname}}</h4>
+                                <p class="card-text">$50 estimated cost</p>
+                                <a class="btn btn-primary btn-sm" (click)="selectTasker(item.id)"><i class="fa fa-plus"></i>Select</a>
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+    </div>
+</section>
+
+
