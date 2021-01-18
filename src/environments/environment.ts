@@ -4,13 +4,13 @@
 
 export const environment = {
   production: false,
-  authenticate:"http://localhost:8080/users/authenticate",
-  register:"http://localhost:8080/users/register",
-  getTaskers:"http://localhost:8080/users/taskers",
-  getAllTasks:"http://localhost:8080/tasks",
-  sendRequest:"http://localhost:8080/tasks/sendRequest",
-  showPendingTasks:"http://localhost:8080/tasks/tasker?taskerId=",
-  findCustomer:"http://localhost:8080/users/customer/",
+  authenticate:"https://projectcheetah.herokuapp.com/users/authenticate",
+  register:"https://projectcheetah.herokuapp.com/users/register",
+  getTaskers:"https://projectcheetah.herokuapp.com/users/taskers",
+  getAllTasks:"https://projectcheetah.herokuapp.com/tasks",
+  sendRequest:"https://projectcheetah.herokuapp.com/tasks/sendRequest",
+  showPendingTasks:"https://projectcheetah.herokuapp.com/tasks/tasker?taskerId=",
+  findCustomer:"https://projectcheetah.herokuapp.com/users/customer/"
 };
 
 /*
