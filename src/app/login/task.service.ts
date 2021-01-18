@@ -6,14 +6,16 @@ import { environment } from '../../environments/environment';
 })
 export class TaskService {
 
-
-  constructor(private http: HttpClient) { }
+  token:string;
+  constructor(private http: HttpClient) {
+     this.token = localStorage.getItem('token')||"";
+   }
 
 
   getallTasks() {
     return this.http.get<any>(environment.getAllTasks, {
       headers:
-        { Authorization: "Bearer " + localStorage.getItem('token') }
+        { Authorization: "Bearer " + this.token}
     });
 
   }
@@ -26,7 +28,7 @@ export class TaskService {
         "taskId": taskId,
         "taskRequestStatus": status
       },
-      { headers: { Authorization: "Bearer " + localStorage.getItem('token') } }
+      { headers: { Authorization: "Bearer " + this.token} }
     );
 
   }
@@ -34,14 +36,14 @@ export class TaskService {
   showPendingRequest(taskerId: any) {
     return this.http.get<any>(environment.showPendingTasks + taskerId, {
       headers:
-        { Authorization: "Bearer " + localStorage.getItem('token') }
+        { Authorization: "Bearer " + this.token}
     });
 
   }
   findCustomer(id:any){
     return this.http.get<any>(environment.findCustomer+id, {
       headers:
-        { Authorization: "Bearer " + localStorage.getItem('token') }
+        { Authorization: "Bearer " + this.token }
     });
   }
 }

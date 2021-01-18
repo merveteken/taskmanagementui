@@ -6,12 +6,16 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
+  token:string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.token = localStorage.getItem('token')||"";
+
+  }
 
   getallTasker() {
     return this.http.get<any>(environment.getTaskers, { headers: 
-      { Authorization:"Bearer "+localStorage.getItem('token') } });
+      { Authorization:"Bearer "+this.token } });
 
   }
 
