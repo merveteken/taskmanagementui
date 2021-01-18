@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
       this.successMessage = 'Signup Successful.';
       this.role = result.roles[0].name;
       this.authenticationService.authentice(this.username,this.password).subscribe((data)=>{
-        localStorage.setItem('token',result.token);
+        localStorage.setItem('token',data.token);
         if(this.role==='CUSTOMER'){
           this.router.navigateByUrl('/customer');
 
