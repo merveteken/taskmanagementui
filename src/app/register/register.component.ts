@@ -42,6 +42,8 @@ export class RegisterComponent implements OnInit {
       this.role = result.roles[0].name;
       this.authenticationService.authentice(this.username,this.password).subscribe((data)=>{
         localStorage.setItem('token',data.token);
+        localStorage.setItem('user',data.user.firstname+" "+data.user.lastname);
+
         if(this.role==='CUSTOMER'){
           this.router.navigateByUrl('/customer');
 
